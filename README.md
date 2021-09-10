@@ -5,6 +5,9 @@ Desenvolva um App para gerenciar pequenas anotações (lembretes). O aplicativo 
 ### Modelo para interface:
 ![image](https://user-images.githubusercontent.com/49655656/132913920-ee4e9f3e-d8a8-420a-818c-a76cb7e04507.png)
 
-* As anotações são coloridas de acordo com a prioridade: amarela: baixa; azul: normal e vermelha: alta
+* As anotações são coloridas de acordo com a prioridade: 
+  * - ![#E2C541](https://via.placeholder.com/15/E2C541/000000?text=+) `#E2C541`: baixa; 
+  * - ![#182C59](https://via.placeholder.com/15/182C59/000000?text=+) `#182C59`: normal; 
+  * - ![#C23228](https://via.placeholder.com/15/C23228/000000?text=+) `#C23228`: alta; 
 * um toque longo no ítem da lista deve apagá-la
 * um toque curto, deve mostrar em outra activity a anotação de forma detalhada
