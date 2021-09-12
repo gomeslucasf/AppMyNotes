@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mi_novaAnotacao"
+        android:title="Nova Anotação" />
+    <item
+        android:id="@+id/mi_ordenarPrioridade"
+        android:title="Ordenar por prioridade" />
+    <item
+        android:id="@+id/mi_ordenarAlfabetica"
+        android:title="Ordenar Alfabeticamente" />
+    <item
+        android:id="@+id/mi_fechar"
+        android:title="fechar"
+        />
+</menu>
