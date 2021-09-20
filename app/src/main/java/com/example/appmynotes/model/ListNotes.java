@@ -1,4 +1,11 @@
 package com.example.appmynotes.model;
+import com.example.appmynotes.control.NoteControl;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +20,23 @@ public class ListNotes implements Serializable {
 
     public boolean isNull(){return (this.notes == null);}
 
+    public void Save( FileOutputStream fout ) throws IOException {
+
+        ObjectOutputStream out;
+        ListNotes listDeNotes = NoteControl.getInstance().getListNotes();
+
+        out = new ObjectOutputStream(fout);
+        out.writeObject(listDeNotes);
+        out.close();
+
+    }
+    public void Load(FileInputStream fin) throws IOException, ClassNotFoundException {
+
+        ObjectInputStream in;
+        in = new ObjectInputStream(fin);
+        NoteControl.getInstance().setListNotes((ListNotes) in.readObject());
+        in.close();
+    }
 
     /*outros metodos de pesquisa e ordenação */
 

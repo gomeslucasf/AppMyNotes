@@ -38,21 +38,10 @@ public class NoteControl {
     }
 
     public void Save( FileOutputStream fout ) throws IOException {
-
-        ObjectOutputStream out;
-        ListNotes listDeNotes = NoteControl.getInstance().getListNotes();
-
-        out = new ObjectOutputStream(fout);
-        out.writeObject(listDeNotes);
-        out.close();
-
+        listNotes.Save(fout);
     }
     public void Load(FileInputStream fin) throws IOException, ClassNotFoundException {
-
-        ObjectInputStream in;
-        in = new ObjectInputStream(fin);
-        NoteControl.getInstance().setListNotes((ListNotes) in.readObject());
-        in.close();
+        listNotes.Load(fin);
     }
 
 }
