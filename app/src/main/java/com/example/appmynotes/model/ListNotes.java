@@ -21,21 +21,31 @@ public class ListNotes implements Serializable {
     public boolean isNull(){return (this.notes == null);}
 
     public void Save( FileOutputStream fout ) throws IOException {
-
+/*
         ObjectOutputStream out;
         ListNotes listDeNotes = NoteControl.getInstance().getListNotes();
 
         out = new ObjectOutputStream(fout);
         out.writeObject(listDeNotes);
         out.close();
+        */
 
     }
     public void Load(FileInputStream fin) throws IOException, ClassNotFoundException {
+        notes.add(new Note("Pagar Conta de Luz","R$129,90", 1));
+        notes.add(new Note("Pagar Conta de Luz","R$129,90", 2));
+        notes.add(new Note("Pagar Conta de Luz","R$129,90", 0));
+        notes.add(new Note("Pagar Conta de Luz","R$129,90", 1));
+        notes.add(new Note("Pagar Conta de Luz","R$129,90", 2));
+        notes.add(new Note("Pagar Conta de Luz","R$129,90", 0));
 
+        /*
         ObjectInputStream in;
         in = new ObjectInputStream(fin);
         NoteControl.getInstance().setListNotes((ListNotes) in.readObject());
         in.close();
+
+ */
     }
 
     /*outros metodos de pesquisa e ordenação */

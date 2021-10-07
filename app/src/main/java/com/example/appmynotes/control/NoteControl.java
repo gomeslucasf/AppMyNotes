@@ -16,20 +16,22 @@ public class NoteControl {
     private static ListNotes listNotes ;
     private static NoteControl singleton;
 
-    private NoteControl(){}
+    private NoteControl(){
+        listNotes = new ListNotes();
+    }
 
     public static NoteControl getInstance(){
-        if(NoteControl.singleton.isNull()) {
+        if(singleton == null) {
             singleton = new NoteControl();
         }
         return singleton;
     }
 
-    public static ListNotes getListNotes() {
+    public  ListNotes getListNotes() {
         return listNotes;
     }
 
-    public static void setListNotes(ListNotes listNotes) {
+    public  void setListNotes(ListNotes listNotes) {
         NoteControl.listNotes = listNotes;
     }
 

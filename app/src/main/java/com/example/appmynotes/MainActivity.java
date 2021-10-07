@@ -10,10 +10,13 @@ import android.service.controls.Control;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.appmynotes.control.NoteControl;
 import com.example.appmynotes.model.ListNotes;
 import com.example.appmynotes.model.Note;
+import com.example.appmynotes.model.NoteAdapter;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -23,11 +26,21 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private ListView componentListNotes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        componentListNotes = (ListView) findViewById(R.id.lvNotes);
+        try {
+            NoteControl.getInstance().Load(null);
+            montarLista();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,4 +83,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void montarLista(){
+        NoteAdapter adapter = new NoteAdapter(this, R.layout.item_notes,NoteControl.getInstance().getListNotes().getNotes());
+        componentListNotes.setAdapter(adapter);
+
+    }
 }
